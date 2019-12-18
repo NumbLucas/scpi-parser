@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RGS2000NG>
+  <HW></HW>
+  <ACCESS param="RMT,REMOTE,LCL,LOCAL"></ACCESS>
+  <PN></PN>
+  <PKEY></PKEY>
+  <RESET></RESET>
+  <SN></SN>
+  <SW></SW>
+  <NAME></NAME>
+  <VERSIONS></VERSIONS>
+  <TXBLOCK>
+    <PERIOD></PERIOD>
+    <HIT></HIT>
+    <MISS></MISS>
+    <MODE></MODE>
+    <TRANSMISSONS></TRANSMISSONS>
+    <LOAD></LOAD>
+    <MESSage></MESSage>
+    <PHAse></PHAse>
+    <POWer></POWer>
+    <TIME></TIME>
+    <TYPE></TYPE>
+    <NMESSS></NMESSS>
+    <RESET></RESET>
+    <SAVE></SAVE>
+    <START></START>
+    <STOP></STOP>
+  </TXBLOCK>
+
+  <MEAsure>
+    <DFORMAT></DFORMAT>
+    <FREQuency></FREQuency>
+    <SETting>
+      <MODe></MODe>
+      <PORT></PORT>
+      <PULse></PULse>
+      <TRIGger>
+        <ANTenna param="TOP,BOTTOM"></ANTenna>
+        <MSADDR></MSADDR>
+        <QUAD param="FORWARD,RIGHT,LEFT,BOTTOM"></QUAD>
+        <WS></WS>
+        <LDBM></LDBM>
+        <EDGE param="+,-"></EDGE>
+        <LEVel></LEVel>
+        <MODE param="NORMAL,SINGLE"></MODE>
+        <SOUrce></SOUrce>
+      </TRIGger>
+    </SETting>
+    <PULse>
+      <FALL></FALL>
+      <RISE></RISE>
+      <POWer></POWer>
+      <WIDth></WIDth>
+    </PULse>
+  </MEAsure>
+  
+  <OWN>
+    <ALTitude></ALTitude>
+    <HEADing></HEADing>
+    <LATitude></LATitude>
+    <LONGitude></LONGitude>
+    <MSADDR></MSADDR>
+    <REPort></REPort>
+  </OWN>
+  <RCVr>
+    <LOG>
+      <CLEar></CLEar>
+      <DL></DL>
+    </LOG>
+    <COunt></COunt>
+    <MTCOunt></MTCOunt>
+    <RECord param="ON,OFF"></RECord>
+    <MAsk></MAsk>
+    <UTC param="ON,PC,GPS,429,OFF"></UTC>
+  </RCVr>
+  
+  <D0260>
+    <LOAD></LOAD>
+    <RESET></RESET>
+    <SAVE></SAVE>
+    <START></START>
+    <STOP></STOP>
+    <TEST cmd_type="1"></TEST>
+    <TIMING>
+      <TRANSmissons></TRANSmissons>
+      <PERiod></PERiod>
+      <TRIGger>
+        <MODE></MODE>
+        <SOURCE param="GENA,GENB,GENC,GEND,GENE,GENF"></SOURCE>
+        <RANDOM>
+          <WIDth></WIDth>
+          <POSition></POSition>
+        </RANDOM>
+      </TRIGger>
+    </TIMING>
+    <TYPE>
+      <PREAmblevel>
+        <CHIPS>
+          <DAMP></DAMP>
+          <EFIRST></EFIRST>
+          <NFIRST></NFIRST>
+          <IDAMP param="ON,OFF"></IDAMP>
+          <ELAST></ELAST>
+          <NLAST></NLAST>
+        </CHIPS>
+      </PREAmblevel>
+      <OVERLAPpinglulse>
+        <PULSE>
+          <DELAY></DELAY>
+          <WIDth></WIDth>
+        </PULSE>
+      </OVERLAPpinglulse>
+      <CONFidence>
+        <BADP>
+          <CHIPS></CHIPS>
+        </BADP>
+        <ENERGY>
+          <CHIPS></CHIPS>
+        </ENERGY>
+      </CONFidence>
+      <BITFailures>
+        <CHIPS>
+          <BFIRST></BFIRST>
+          <FIRST></FIRST>
+          <BLAST></BLAST>
+          <LAST></LAST>
+        </CHIPS>
+      </BITFailures>
+      <ALTeredpreamble>
+        <PULSE>
+          <SUBCMD value="P1,P2,P3,P4">
+            <ENABLE></ENABLE>
+            <POSition></POSition>
+            <WIDth></WIDth>
+          </SUBCMD>
+        </PULSE>
+      </ALTeredpreamble>
+      <NORMAL>
+        <GENS></GENS>
+        <PULSE>
+          <MODES>
+            <CH>
+              <P1>
+                <DWIDTH></DWIDTH>
+                <ENABLE></ENABLE>
+              </P1>
+              <SUBCMD value="P2,P3,P4">
+                <DWIDTH></DWIDTH>
+                <ENABLE></ENABLE>
+                <DPOS></DPOS>
+              </SUBCMD>
+            </CH>
+          </MODES>
+          <ATCRBS>
+            <CH>
+              <SUBCMD value="PF1,PC1,PA1,PC2,PA2,PC4,PA4,PB1,PD1,PB2,PD2,PB4,PD4,PF2">
+                <DPOS></DPOS>
+                <DWIDTH></DWIDTH>
+                <ENABLE></ENABLE>
+              </SUBCMD>
+            </CH>
+          </ATCRBS>
+        </PULSE>
+        <GENS>
+          <SUBCMD value="GENA,GENB,GENC,GEND,GENE,GENF">
+            <PAth param="TOP,BOTTOM"></PAth>
+            <MODEC>
+              <DATA></DATA>
+              <RANDOM param="ON,OFF"></RANDOM>
+            </MODEC>
+            <DELAY></DELAY>
+            <SIGnal></SIGnal>
+            <PHAse></PHAse>
+            <POWer></POWer>
+            <MODES>
+              <RANDOM></RANDOM>
+            </MODES>
+            <RSPOS param="ON,OFF"></RSPOS>
+            <WALK></WALK>
+          </SUBCMD>
+        </GENS>
+      </NORMAL>
+      <SUBCMD value="OVERLAPpingulse,ALTeredpreamble,BITFailures,PREAmblevel">
+        <GENS>
+          <SUBCMD value="GENA,GENC">
+            <PAth></PAth>
+            <DELAY></DELAY>
+            <PHAse></PHAse>
+            <POWer></POWer>
+          </SUBCMD>
+        </GENS>
+      </SUBCMD>
+    </TYPE>
+    
+  </D0260>
+  
+  <M429>
+    <HEADing>
+      <LABEL param="320,314,313"></LABEL>
+      <POSition param="A1B1,A2B2,A3B3"></POSition>
+    </HEADing>
+    <LATitude>
+      <LABEL param="110,254,310"></LABEL>
+      <POS param="A1B1,A2B2,A3B3"></POS>
+    </LATitude>
+    <LONGItude >
+      <LABEL param="111,255,311"></LABEL>
+      <POS param="A1B1,A2B2,A3B3"></POS>
+    </LONGItude>
+    <ALTitude>
+      <POS param="A1B1,A2B2,A3B3"></POS>
+    </ALTitude>
+  </M429>
+  <XPDR>
+    <CABLOS></CABLOS>
+    <CABLOSBOT></CABLOSBOT>
+    <INTERFerence is_cmd="true" cmd="">
+      <P1Width></P1Width>
+      <Position></Position>
+      <AMPlitude></AMPlitude>
+      <SPACing></SPACing>
+      <STATE param="ON,OFF"></STATE>
+      <P2Width></P2Width>
+    </INTERFerence>
+    <FREQuency></FREQuency>
+    <RF param="ON,OFF"></RF>
+    <TYPE></TYPE>
+    <POWer></POWer>
+    <LOAD></LOAD>
+    <RESET></RESET>
+    <SAVE></SAVE>
+    <SCOPE is_cmd="true" cmd="">
+      <INTERR>
+        <OFFSET></OFFSET>
+      </INTERR>
+    </SCOPE>
+    <START></START>
+    <STOP></STOP>
+    <SUPperession param="ON,OFF"></SUPperession>
+    <SUPPerc></SUPPerc>
+    <TXBLOCK>
+      <PERIOD></PERIOD>
+      <HIT></HIT>
+      <MISS></MISS>
+      <MODE param="CONTINUOUS,INTERRUPT"></MODE>
+      <TRANSmissions></TRANSmissions>
+      <MESSage></MESSage>
+      <NMESSage></NMESSage>
+      <POWer></POWer>
+      <TIME></TIME>
+      <TYPE></TYPE>
+    </TXBLOCK>
+    <DBL>
+      <MODe></MODe>
+      <UF></UF>
+      <P1TOP1></P1TOP1>
+      <POWer></POWer>
+      <PULse></PULse>
+      <PRF></PRF>
+      <PWidth></PWidth>
+      <PRFSYNC param="ON,OFF"></PRFSYNC>
+      <SLS></SLS>
+      <SYNC></SYNC>
+    </DBL>
+    <ITABLE>
+      <BURST is_cmd="true" param="ON,OFF">
+        <COUNT></COUNT>
+        <GAP></GAP>
+        <START></START>
+        <STOP></STOP>
+      </BURST>
+      <NINT></NINT>
+      <PRF></PRF>
+      <ANTenna>
+        <POWer></POWer>
+        <TIMe></TIMe>
+      </ANTenna>
+      <ENABLE param="ON,OFF"></ENABLE>
+      <MODe></MODe>
+      <UF></UF>
+      <POWer></POWer>
+      <PULse>
+        <PALLWidth></PALLWidth>
+        <P1Width></P1Width>
+        <P2Width></P2Width>
+        <P3Width></P3Width>
+        <P4Width></P4Width>
+        <P5Width></P5Width>
+        <P6ENDWidth></P6ENDWidth>
+        <P1Power></P1Power>
+        <P2Power></P2Power>
+        <P3Power></P3Power>
+        <P4Power></P4Power>
+        <P5Power></P5Power>
+        <P12Spacing></P12Spacing>
+        <P13Spacing></P13Spacing>
+        <P34Spacing></P34Spacing>
+        <P16Spacing></P16Spacing>
+        <P1SPRSpacing></P1SPRSpacing>
+        <P15Spacing></P15Spacing>
+      </PULse>
+      <SLS param="ON,OFF"></SLS>
+      <SYNC></SYNC>
+    </ITABLE>
+    <ANTenna>
+      <POWer></POWer>
+      <TIMe></TIMe>
+    </ANTenna>
+    <MODe></MODe>
+    <UF></UF>
+    <PULse></PULse>
+    <PRF></PRF>
+    <PWidth></PWidth>
+    <PRFSYNC></PRFSYNC>
+    <SLS></SLS>
+    <AREPly></AREPly>
+    <CREPly></CREPly>
+    <MODe></MODe>
+    <NINTERR></NINTERR>
+    <PREPly></PREPly>
+    <DREPly></DREPly>
+    <JREPly></JREPly>
+  </XPDR>
+  <SETting>
+    <PHAse>
+      <NOIse></NOIse>
+    </PHAse>
+    <PULse>
+      <WIDth></WIDth>
+    </PULse>
+    <RCVr>
+      <PAth></PAth>
+    </RCVr>
+    <SCOpe>
+      <CH1></CH1>
+      <CH2></CH2>
+    </SCOpe>
+    <GENA>
+      <FREQuency></FREQuency>
+      <MODe></MODe>
+      <PATH></PATH>
+      <PHAse></PHAse>
+      <POWer></POWer>
+      <SIGnal></SIGnal>
+      <RISEfall></RISEfall>
+    </GENA>
+    <GENB>
+      <FREQuency></FREQuency>
+      <MODe></MODe>
+      <PATH></PATH>
+      <PHAse></PHAse>
+      <POWer></POWer>
+      <SIGnal></SIGnal>
+    </GENB>
+    <GENC>
+      <FREQuency></FREQuency>
+      <MODe></MODe>
+      <PATH></PATH>
+      <PHAse></PHAse>
+      <POWer></POWer>
+      <SIGnal></SIGnal>
+      <RISEfall></RISEfall>
+    </GENC>
+    <GEND>
+      <FREQuency></FREQuency>
+      <MODe></MODe>
+      <PATH></PATH>
+      <PHAse></PHAse>
+      <POWer></POWer>
+      <SIGnal></SIGnal>
+    </GEND>
+    <GENE>
+      <FREQuency></FREQuency>
+      <MODe></MODe>
+      <PATH></PATH>
+      <PHAse></PHAse>
+      <POWer></POWer>
+      <SIGnal></SIGnal>
+      <RISEfall></RISEfall>
+    </GENE>
+    <GENF>
+      <FREQuency></FREQuency>
+      <MODe></MODe>
+      <PATH></PATH>
+      <PHAse></PHAse>
+      <POWer></POWer>
+      <SIGnal></SIGnal>
+    </GENF>
+  </SETting>
+
+  <SCENario>
+    <PULse></PULse>
+    <I1030></I1030>
+    <INTERrogator></INTERrogator>
+    <STATic></STATic>
+    <DYNamic></DYNamic>
+    <VDB>
+      <ALTitude></ALTitude>
+      <AMPlitude param="BINARY,GILHAM"></AMPlitude>
+      <WS>
+        <RPLYANT param="ON,OFF"></RPLYANT>
+        <RPLYQUAD param="FORWARD,BOTTOM"></RPLYQUAD>
+      </WS>
+      <BEAring></BEAring>
+      <DATA></DATA>
+      <ENABLE param="ON,OFF"></ENABLE>
+      <MASADDR></MASADDR>
+      <ONEshot>
+        <TIME>
+          <ENAble></ENAble>
+          <BEGIN></BEGIN>
+        </TIME>
+        <NTIMES></NTIMES>
+      </ONEshot>
+      <QUANtity></QUANtity>
+      <RANge></RANge>
+      <RPLYANT></RPLYANT>
+      <RPLYCH></RPLYCH>
+      <RPLYPWR></RPLYPWR>
+      <RESolution></RESolution>
+      <BEGIN></BEGIN>
+      <END></END>
+      <TRACK></TRACK>
+      <MODE param="TCAS,ATCRBS"></MODE>
+      <VERTical></VERTical>
+    </VDB>
+    <ANTenna param="DUAL,TOP,BOTOM"></ANTenna>
+    <ATEline param="ON,OFF"></ATEline>
+    <AUTOWS param="ON,OFF"></AUTOWS>
+    <CHannel param="UARTX1,UARTX2"></CHannel>
+    <COMPile></COMPile>
+    <COORdination></COORdination>
+    <EXPort></EXPort>
+    <OWNsource param="MANUAL,429,EXTERNAL,UUT"></OWNsource>
+    <FRUit param="ON,OFF"></FRUit>
+    <GPS param="ON,OFF"></GPS>
+    <LOAD></LOAD>
+    <CAPture param="ON,OFF"></CAPture>
+    <MSOSTEP></MSOSTEP>
+    <POWer param="HI,LO,VLO"></POWer>
+    <RESET></RESET>
+    <TIme></TIme>
+    <SAVE></SAVE>
+    <TYPE param="TCAS,XPDR,UAT,MULTI"></TYPE>
+    <UTCGPS></UTCGPS>
+    <SLAnt param="ON,OFF"></SLAnt>
+    <SPAcing></SPAcing>
+    <STArt></STArt>
+    <STEST param="ON,OFF"></STEST>
+    <STOp></STOp>
+    <SWEEP param="ON,OFF">
+      <STEP></STEP>
+      <INTERVAL></INTERVAL>
+    </SWEEP>
+    <UAT>
+      <STEST>
+        <DOPPLER></DOPPLER>
+        <DSHIFT param="PLUS,+,MINUS,-"></DSHIFT>
+        <FREQuency></FREQuency>
+        <IQFilter></IQFilter>
+        <HSPacing></HSPacing>
+        <MODulation></MODulation>
+        <POWer></POWer>
+        <TYPE></TYPE>
+        <WIDth></WIDth>
+      </STEST>
+    </UAT>
+  </SCENario>
+</RGS2000NG>
