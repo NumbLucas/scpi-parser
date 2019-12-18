@@ -46,11 +46,11 @@ void splitStr(const string& str, const char& separator, vector<string>& rst) {
 
 /*
 函数名：splitCmdAndParm
-功 能：分割单条命令的指令头与参数部分，结果保存在vector中
+功 能：分割单条命令的指令头与参数部分
 参 数1：str   输入字符串指针
 参 数2：head   命令头部
 参 数3：param   命令参数
-返回值：
+返回值：无
 **/
 void splitCmdAndParm(const string& str,string& head, string& param) {
 	int start = 0;
@@ -77,7 +77,7 @@ void splitCmdAndParm(const string& str,string& head, string& param) {
 函数名：removeHeadTailSpace
 功 能：移除头尾空格
 参 数1：str   输入字符串指针	
-返回值：
+返回值：无
 **/
 void removeHeadTailSpace(string& str) {
 	int start = 0;

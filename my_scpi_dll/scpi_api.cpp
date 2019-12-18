@@ -57,7 +57,7 @@ int SCPI_REGISTER_PATTERN(char* pattern, scpi_command_callback_t callback) {
 **/
 int SCPI_INPUT(char* cmd) {
 	scpi_t context;
-
+	context.interface = parser->interface; 
 	return parser->parser(&context, cmd, root);
 }
 
