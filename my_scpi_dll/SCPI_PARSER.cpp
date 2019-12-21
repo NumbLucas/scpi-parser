@@ -10,6 +10,7 @@
 **********************************************************************************/  
 #include "SCPI_PARSER.h"
 #include "handle_multi_cmd.h"
+#include "scpi_def.h"
 #include <vector>
 #include <iostream>
 
@@ -38,7 +39,8 @@ SCPI_PARSER::SCPI_PARSER(scpi_interface_t* interface)
 
 SCPI_PARSER::SCPI_PARSER(void)
 {
-	string s;
+	this->interface = &my_scpi_interface;
+	//string s;
 }
 
 SCPI_PARSER::~SCPI_PARSER(void)
@@ -56,13 +58,14 @@ SCPI_PARSER::~SCPI_PARSER(void)
 **/
 bool SCPI_PARSER::parserCommonCmdHeader(scpi_t* context, string header, SCPI_CMD_NODE* root, string param) {
 	string s = header.substr(1, header.size()-1);
-	SCPI_CMD_NODE* temp = root->getNode(s);
+	int index = 0;
+	SCPI_CMD_NODE* temp = root->getNode(s, index);
 
 	if(temp == NULL)
 		return false;
-	if(temp->isEnd) {
+	if(temp->getIsEnd()) {
 			//TODO 提前处理参数
-		temp->call_back_func(context);
+		temp->getCallackFunc()(context);
 		return true;
 	}
 	return false;
@@ -83,7 +86,7 @@ bool SCPI_PARSER::parserRgsCmdHeader(scpi_t* context, string header, SCPI_CMD_NO
 	string s;
 
 	splitStr(header, ':', v);
-
+	int subChoiceLevel = 0;
 
 	for(int i = 0;i < v.size();i++) {
 		s = v.at(i);
@@ -91,26 +94,37 @@ bool SCPI_PARSER::parserRgsCmdHeader(scpi_t* context, string header, SCPI_CMD_NO
 		memcpy_s(context->cmds[context->cmds_num++], MAX_CMD_LENGTH-1, s.c_str(), s.length());
 		//strspn
 		if(isAllNum(s)) {
-			context->subCmdParam = atoi(s.c_str());
+			context->sub_cmd_num = atoi(s.c_str());
 			continue;
 		}
-
-		SCPI_CMD_NODE* temp = current->getNode(s);
+		//[GENA|GENB|GENC|GEND] index表示选项对应的索引
+		int index = -1;
+		SCPI_CMD_NODE* temp = current->getNode(s, index);
 		if(temp == NULL) {
-			this->interface->error(context, 0);
+			if(this->interface&&this->interface->error)
+				this->interface->error(context, -1);
 			return false;
 		}
+		if(index != -1) {//表明是选项类命令
+			if(subChoiceLevel<MAX_SUB_CMD_CHOICE_LEVEL)
+				context->cmd_chioce_index[subChoiceLevel++] = index;
+			else 
+				printf("unsupported subChoiceLevel size larger than %d",MAX_SUB_CMD_CHOICE_LEVEL);
+		}
+
+		//context->subCmdChioce[subChoiceLevel] = 
 		
-		if(temp->isEnd&&i == v.size()-1) {
+		if(temp->getIsEnd()&&i == v.size()-1) {
 			//TODO 提前处理参数
 			processContext(context, header, param);
-			temp->call_back_func(context);
+			temp->getCallackFunc()(context);
 			return true;
 		}
 			
 		current = temp;
 	}
-	this->interface->error(context, 0);
+	if(this->interface&&this->interface->error)
+		this->interface->error(context, -2);
 	return false;
 }
 

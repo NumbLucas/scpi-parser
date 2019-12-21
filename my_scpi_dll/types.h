@@ -3,7 +3,7 @@
 
 #define MAX_CMD_LEVEL 10
 #define MAX_CMD_LENGTH 15
-
+#define MAX_SUB_CMD_CHOICE_LEVEL 3
 #ifndef FALSE
 #define FALSE 0
 #endif
@@ -44,7 +44,11 @@ struct _scpi_t{
 	const char* param;
 	char extend_cmd_param[MAX_CMD_LEVEL][MAX_CMD_LENGTH];
 	int  extend_cmd_size;
-	int  subCmdParam;
+	int  sub_cmd_num;//类似于CH:1，CH:2中的数字
+
+	const char* cmd_chioce[MAX_SUB_CMD_CHOICE_LEVEL];//同一层次的命令选项{:GENA | :GENB | :GENC |:GEND | :GENE | :GENF}
+	int cmd_chioce_index[MAX_SUB_CMD_CHOICE_LEVEL];
+
 	char cmds[MAX_CMD_LEVEL][MAX_CMD_LENGTH];
 	int  cmds_num;
 	scpi_interface_t* interface;

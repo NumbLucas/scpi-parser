@@ -11,3 +11,5 @@ void testParamArrayNumberInt(SCPI_CMD_NODE* root);
 void testParamArrayNumberDouble(SCPI_CMD_NODE* root);
 void testParamArrayCharacter(SCPI_CMD_NODE* root);
 
+void testParmSubCmdChoice(SCPI_CMD_NODE* root);
+

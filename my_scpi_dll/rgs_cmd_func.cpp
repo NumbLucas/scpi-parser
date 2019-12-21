@@ -60,7 +60,13 @@ scpi_result_t SCPI_RGS_FUNC_TEST_ARRAY_DOUBLE(scpi_t * context) {
 	return SCPI_RES_OK;
 }
 scpi_result_t SCPI_RGS_FUNC_TEST_ARRAY_CHARACTER(scpi_t * context);
-
+scpi_result_t SCPI_RGS_FUNC_TEST_SUB_CMD_CHOICE(scpi_t * context){
+	printf("SCPI_RGS_FUNC_TEST_SUB_CMD_CHOICE -----header:%s param:%s \n",context->header, context->param);
+	for(int i = 0;i < MAX_SUB_CMD_CHOICE_LEVEL;i++) {
+		printf("level_%d index: %d \n",i, context->cmd_chioce_index[i]);
+	}
+	return SCPI_RES_OK;
+}
 scpi_result_t SCPI_RGS_FUNC_TEST_CMD_PARAM(scpi_t * context);
 scpi_result_t SCPI_RGS_FUNC_TEST_PARAM(scpi_t * context);
 scpi_result_t SCPI_RGS_FUNC_TEST_CHOICE(scpi_t * context);

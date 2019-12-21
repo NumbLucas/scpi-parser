@@ -7,8 +7,8 @@
 
 using namespace std;
 
-SCPI_CMD_NODE* root = new SCPI_CMD_NODE();
-SCPI_PARSER* parser = new SCPI_PARSER(&my_scpi_interface);
+SCPI_CMD_NODE* scpi_cmd_node_root = new SCPI_CMD_NODE();
+SCPI_PARSER* scpi_parser = new SCPI_PARSER(&my_scpi_interface);
 
 /*
 函数名：writeData
@@ -33,7 +33,7 @@ static size_t writeData(scpi_t * context, const char * data, int len) {
 返回值：1
 **/
 SCPI_DLL_API int SCPI_INIT(scpi_interface_t* interface) {
-	parser->interface = interface;	
+	scpi_parser->interface = interface;	
 	return 1;
 }
 
@@ -45,7 +45,7 @@ SCPI_DLL_API int SCPI_INIT(scpi_interface_t* interface) {
 返回值：1
 **/
 int SCPI_REGISTER_PATTERN(char* pattern, scpi_command_callback_t callback) {
-	root->addCmdPattern(pattern, callback);
+	scpi_cmd_node_root->addCmdPattern(pattern, callback);
 	return 1;
 }
 
@@ -57,8 +57,14 @@ int SCPI_REGISTER_PATTERN(char* pattern, scpi_command_callback_t callback) {
 **/
 int SCPI_INPUT(char* cmd) {
 	scpi_t context;
-	context.interface = parser->interface; 
-	return parser->parser(&context, cmd, root);
+	//初始化结构体
+	context.interface = scpi_parser->interface; 
+		for(int i = 0;i< MAX_SUB_CMD_CHOICE_LEVEL;i++) {
+		context.cmd_chioce_index[i] = -1;
+	}
+	context.sub_cmd_num = 0;
+	context.cmds_num = 0;
+	return scpi_parser->parser(&context, cmd, scpi_cmd_node_root);
 }
 
 /*

@@ -60,8 +60,8 @@ int main() {
 	splitCmdAndParm("  rngs:21:re:wq   32,43,12   ", cmd, param);
 	cout<<"cmd: "<<cmd<<endl;
 	cout<<"param: "<< param<<endl;
-	*/
-/*
+	
+
 	SCPI_CMD_NODE root;
 	root.addCmdSubNode(new SCPI_CMD_NODE("xpdr"));
 	root.addCmdSubNode(new SCPI_CMD_NODE("measure"));
@@ -95,8 +95,8 @@ int main() {
 
 	}
 	*/
-	SCPI_CMD_NODE root;
-
+	
+	/*
 	char* pattern[5][5]={{"RGS2000NG","RGS3000NG","RGS4000NG","RGS5000NG","RGS6000NG"},
 					 {"SCE","XPDR","SETTING","M429","MEAsure"},
 					 {"FREQ","Test","STA","PULSE","VDB"},
@@ -111,7 +111,9 @@ int main() {
 		for (int j = 0; j < 5; j++)
 			b[i][j] = false;
 
-	//dfs(pattern, 0, b, cmd, &root);
+	dfs(pattern, 0, b, cmd, &root);
+	*/
+	SCPI_CMD_NODE root;
 	root.addCmdPattern("*IDN?", SCPI_RGS_FUNC_TEST);
 	root.addCmdPattern(":RGS2000NG:XPDR:[]:FREQuency:On", SCPI_RGS_FUNC_TEST);
 	root.addCmdPattern(":RGS2000NG:XPDR:Test:OFf", SCPI_RGS_FUNC_TEST);
@@ -122,14 +124,15 @@ int main() {
 	root.addCmdPattern(":RGS2000NG:TEST:PARAM:DOUBLE",SCPI_RGS_FUNC_TEST_DOUBLE);
 	root.addCmdPattern(":RGS2000NG:TEST:PARAM:ARRAY:INT",SCPI_RGS_FUNC_TEST_ARRAY_INT);
 	root.addCmdPattern(":RGS2000NG:TEST:PARAM:ARRAY:DOUBLE",SCPI_RGS_FUNC_TEST_ARRAY_DOUBLE);
-
-	levelOrder(&root);
-	testParamParser(&root);
-
+	root.addCmdPattern(":RGS2000NG:TEST:PARAM:[P1|P2|P3|P4]:[A1|A2|A3|A4]:INT",SCPI_RGS_FUNC_TEST_SUB_CMD_CHOICE);
+	
+	root.levelOrder(&root);
+	//testParamParser(&root);
+	testParmSubCmdChoice(&root);
 	//scpi_t context;
 	//bool rst = parser.parser(&context, ":RGS2000NG:MEAsure:PULse:FREQuency OFF", &root);
 	
-
+	system("pause");
 	return 0;
 }
 

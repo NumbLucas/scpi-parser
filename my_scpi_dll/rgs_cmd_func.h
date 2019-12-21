@@ -13,7 +13,7 @@ scpi_result_t SCPI_RGS_FUNC_TEST_ARRAY_INT(scpi_t * context);
 scpi_result_t SCPI_RGS_FUNC_TEST_ARRAY_DOUBLE(scpi_t * context);
 scpi_result_t SCPI_RGS_FUNC_TEST_ARRAY_CHARACTER(scpi_t * context);
 
-
+scpi_result_t SCPI_RGS_FUNC_TEST_SUB_CMD_CHOICE(scpi_t * context);
 
 
 
